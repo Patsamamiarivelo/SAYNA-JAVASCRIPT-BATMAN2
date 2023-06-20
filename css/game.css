@@ -63,14 +63,14 @@ h1, h2, h3, p, img, input{
     border-right: 2px solid #BCBBBD;
     position: absolute;
     width: 2px;
-    height: 7310px;
+    height: 2050px;
     right: 102px;
 }
 .left-bar{
     border-left: 2px solid #BCBBBD;
     position: absolute;
     width: 2px;
-    height: 7310px;
+    height: 2050px;
     left: 102px;
 }
 
