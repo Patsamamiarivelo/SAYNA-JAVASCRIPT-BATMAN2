@@ -12,7 +12,16 @@
 h1{
     font-family: 'Rajdhani';
     font-size: 40px;
-    font-weight: 400;
+    font-weight: 400px;
+    text-align: center;
+}
+h2{
+    font-family: 'Rajdhani';
+    font-size: 20px;
+    font-weight: 400px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
 }
 *{
     margin: 0; 
@@ -63,16 +72,34 @@ h1, h2, h3, p, img, input{
     border-right: 2px solid #BCBBBD;
     position: absolute;
     width: 2px;
-    height: 2050px;
+    height: 2250px;
     right: 102px;
 }
 .left-bar{
     border-left: 2px solid #BCBBBD;
     position: absolute;
     width: 2px;
-    height: 2050px;
+    height: 2250px;
     left: 102px;
 }
+
+/* scroll*/
+.scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    right: 50px;
+    top: 230px;
+}
+.scroll .social{
+    margin-top: 15px;
+}
+.scroll .social:hover{
+    -webkit-filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
+            filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
+}
+
 
 /*Responsive*/
 @media (max-width: 600px) {
@@ -142,33 +169,6 @@ nav ul a:hover, a.active{
     font-weight: bold;
     text-align: left;
 }
-#hero .texte{
-    font-size: 20px;
-    text-align: center;
-    width: 55%;
-    margin: 0 auto;
-    font-family: 'Space Grotesk';
-}
-#hero .titre{
-    margin: 50px 0;
-    font-size: 30px;
-}
-.btn{
-    text-decoration: none;
-    color: var(--white-color);
-    font-size: 22px;
-    padding: 10px 40px;
-    margin-top: 10px;
-    background: linear-gradient(
-        80deg,var(--gradient-white),var(--gradient-red)
-    );
-    box-shadow: var(--black-color) 15px 15px 50px;
-    font-family: 'Rajdhani';
-    opacity: 0.4; 
-}
-.btn:hover{
-    opacity: 1;
-}
 #hero .fleche{
     display: block;
     margin: 0 auto;
@@ -178,25 +178,24 @@ nav ul a:hover, a.active{
     transform: scale(1.1);
     cursor: pointer;
 }
-.scroll {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    right: 50px;
-    top: 230px;
+
+/* Design section - hero */
+#chevalier{
+    display: block;
+    position: relative;
+    padding: 50px;
 }
-.scroll .social{
-    margin-top: 15px;
+#chevalier .bat{
+    padding: 50px 70px;
 }
-.scroll .social:hover{
-    -webkit-filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
-            filter: invert(4%) sepia(100%) saturate(1680%) hue-rotate(352deg) brightness(109%) contrast(104%);
+a{
+        font-family: 'Rajdhani';
+        font-size: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        color:var(--white-color);
 }
-
-
-
-
 /* Design - footer */
 
 footer{
