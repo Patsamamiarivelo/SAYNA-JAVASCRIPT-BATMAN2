@@ -34,7 +34,7 @@ body{
     font-family: 'Space Grotesk';
     font-weight: 500;
 }
-/* Animations fade-in*/
+/* Animations fade-in
 h1, h2, h3, p, img, input{
     opacity: 0;
     position: relative;
@@ -51,6 +51,39 @@ h1, h2, h3, p, img, input{
       right: 0;
     }
 }
+*/
+.fade-in-start {
+    animation-name: fade-in;
+    animation-duration: 3s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateX(-3.125em);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-right {
+    animation-name: fade-in-right;
+    animation-duration: 3s;
+}
+@keyframes fade-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(3.125em);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
 /* lignes discrète*/
 .up-bar{
     border-top: 2px solid #BCBBBD;
@@ -63,14 +96,14 @@ h1, h2, h3, p, img, input{
     border-right: 2px solid #BCBBBD;
     position: absolute;
     width: 2px;
-    height: 7310px;
+    height: 7420px;
     right: 102px;
 }
 .left-bar{
     border-left: 2px solid #BCBBBD;
     position: absolute;
     width: 2px;
-    height: 7310px;
+    height: 7420px;
     left: 102px;
 }
 
@@ -157,12 +190,11 @@ nav ul a:hover, a.active{
     font-size: 22px;
     padding: 10px 40px;
     margin-top: 10px;
-    background: linear-gradient(
-        80deg,var(--gradient-white),var(--gradient-red)
-    );
+    background-image: linear-gradient(to right ,rgb(237, 222, 191) 40%, rgb(137, 0, 8) 60%);
+    cursor: pointer;
     box-shadow: var(--black-color) 15px 15px 50px;
     font-family: 'Rajdhani';
-    opacity: 0.4; 
+    opacity: 0.6; 
 }
 .btn:hover{
     opacity: 1;
@@ -202,22 +234,73 @@ nav ul a:hover, a.active{
 }
 .batman-item{
     margin: 20px;
+    position: relative;
 }
 .batman-item:hover{
     transform: scale(1.1);
     transition: .5s;
 }
+.actor {
+    visibility: hidden;
+    position: absolute;
+    bottom: 5px;
+    text-align: center;
+    align-items: center;
+    z-index: 1;
+    background-color: rgba(100, 85, 54, .3);
+    width: 100%;
+    height: 30%;
+    border: 1px solid rgba(100, 85, 54, .7);
+    padding-left: 10px;
+    padding-bottom: -10%;
+    border-radius: -1em;
+}
+
+.personnage-info img {
+    position: relative;
+    width: 5em;
+    height: 5em;
+    border-radius: 10%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.personnage-info h3 {
+   margin-left: 1em;
+}
+
+.personnage-info p{
+   filter: invert(6%) sepia(85%) saturate(5811%) hue-rotate(6deg) brightness(87%) contrast(109%);;
+}
+
+.batman-item:hover .actor {
+    visibility: visible;
+    animation-name: slide-top;
+    animation-duration: 3s;
+}
+
+@keyframes slide-top {
+    from {
+        opacity: 0;
+        transform: translateY(-4em);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 #batman-cinéma, #batman-adversaires, #batman-alliés, #batman-justice-league, #multimédia{
     margin-top: 90px;
 }
-#batman-cinéma .titre, #batman-adversaires .titre, #batman-alliés .titre, #batman-justice-league .titre, #multimédia .titre{
+.titre{
     text-transform: uppercase;
     font-weight: bold;
     margin: 20px 0;
     position: relative;
     z-index: 1;
 }
-#batman-cinéma .description, #batman-adversaires .description, #batman-alliés .description, #batman-justice-league .description, #multimédia .description{
+.description{
     margin-bottom: 50px;
     margin-top: -10px;
     text-align: justify;
@@ -225,9 +308,7 @@ nav ul a:hover, a.active{
     font-size: 25px;
     font-family: 'Space Grotesk';
 }
-#batman-cinéma .personnage-info, #batman-adversaires .personnage-info, #batman-alliés .personnage-info{
-    text-align: center;
-}
+
 #némésis{
     position: relative;
     display:block;
@@ -244,15 +325,6 @@ nav ul a:hover, a.active{
     left: 70%;
     width: 30%;
     z-index: 3;
-}
-.acteur{
-    display: flex;
-    position: inherit;
-    bottom: 1vw;
-    left: 1vw;
-    width: 50px;
-    height: auto;
-    border-radius: 2em;
 }
 
 /* Design section - multimédia */
@@ -279,10 +351,10 @@ nav ul a:hover, a.active{
 #multimédia .slider-image{
     position: relative;
     width: 200px;
-    height: 100px;
+    height: 50px;
 }
 #multimédia .slider-content{
-    padding: 5px 5px;
+    padding: 5px 10px;
     background: linear-gradient(90deg,#eddebf, #102830);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -330,11 +402,12 @@ nav ul a:hover, a.active{
 /* Désign section - formulaire*/
 
 #contact{
-    background: linear-gradient(50deg,#eddebf, #102830);
+    background-image: linear-gradient(50deg,#eddebf, #102830);
+    background-color: transparent;
     padding: 70px;
 }
 #contact .form{
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     font-family: 'Rajdhani';
 }
@@ -362,99 +435,134 @@ nav ul a:hover, a.active{
     padding: 5px;
     margin: 30px 0;
 }
-#contact .coch {
+#contact .coch, .news{
     margin-bottom: 20px;
+    color: rgb(100, 85, 54);
 }
 #contact .btn-grp{
     margin-right: 200px;
 }
 ::-webkit-input-placeholder{
-    color: #f8f184;
+    color: rgb(100, 85, 54);
     font-size: 15px;
     }
 
 ::-moz-placeholder{
-    color: #f8f184;
+    color:rgb(100, 85, 54);
     font-size: 15px;
     }
 
 :-ms-input-placeholder{
-    color: #f8f184;
+    color: rgb(100, 85, 54);
     font-size: 15px;
     }
 
 ::-ms-input-placeholder{
-    color: #f8f184;
+    color: rgb(100, 85, 54);
     font-size: 15px;
     }
 
 ::placeholder{
-    color: #f8f184;
+    color:rgb(100, 85, 54);
     font-size: 15px;
     }
 
 /*Design menu déroulant*/
- .frequency{
+ #contact .frequency{
+    position: relative;
     list-style: none;
-    background:none;
+    background: transparent;
     text-align: justify;
     margin-top: 20px;
-    position: relative;
-}
-.frequency li a{
-    display: block;
-    position: relative;
-    color: var(--white-color);
     border-bottom: 2px solid rgb(167, 167, 167);
-    height: 25px;
-    text-decoration: none;
     width: 80%;
-} 
-.frequency .choice li{
-    display: table-column;
-    position: relative;
-    z-index: 1;
-    padding: 10px;
-} 
-.frequency .choice li a{
-    background: linear-gradient(to right, rgb(1, 105, 100), rgb(2, 117, 117));
-    display: flex;
-    color: rgb(251, 252, 252);
-} 
-.frequency li a:hover .frequency .choice li a{
-    display: table-column;
-    z-index: 3;
 }
-#contact img{
-    transform: rotate(90deg);
-    width: 18px;
+#contact select{
+    display: none;
+    margin-top: 0.225vw;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: rgb(100, 85, 54);
+    background-color: linear-gradient(to right, rgb(100, 85, 54), rgb(0, 50, 50));
+}
+#contact .select-selected{
+    color: var(--gradient-white);
+    background-color: linear-gradient(to right, rgb(100, 85, 54), rgb(0, 50, 50));
+    padding: 2% 3%;
+    border: none;
     cursor: pointer;
-    position: absolute;
-    left: 78%;
-    margin-top: -25px;
-    opacity: 1;
+    font-size: 0.875em;
 }
-#contact img:hover{
-    opacity: 0.6;
-    filter: drop-shadow(10px 10px 10px #0D0E09);
+#contact option{
+    position: absolute;
+    border: none;
+    width: 0;
+    height: 0;
+    background-color: linear-gradient(to bottom right, rgb(100, 85, 54), rgb(0, 50, 50));
+}
+/* Style the arrow inside the select element: */
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 1.25vw;
+    right: 0.625vw;
+    width: 0;
+    height: 0;
+    border: 0.9375em solid transparent;
+    border-color: rgb(100, 100, 100) transparent transparent transparent;
+    background-image: linear-gradient(to bottom right, rgb(100, 85, 54), rgb(0, 50, 50));
 }
 
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+    color: #ffffff;
+    padding: 2% 3%;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    font-size: 0.875em;
+    color: #aaa;
+}
+
+/* Style items (options): */
+.select-items {
+    position: absolute;
+    background-color: transparent;
+    background-image: linear-gradient(to bottom right, rgb(100, 85, 54), rgb(0, 50, 50));
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    color: #aaa;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.text-muted {
+    color: #888;
+    font-size: 0.875em;
+}
 /*Design groupe de bouton*/
 .btn-grp{
-    margin: 10px 200px;
+    margin: 10px 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .films{
     text-decoration: none;
     border: 2px solid;
     padding: 10px;
-          -o-border-image:  linear-gradient(
-            69deg,#eddebf67,#19587d
-          ) 1;
-             border-image:  linear-gradient(
-            69deg,#eddebf67,#19587d
-          ) 1;
+    border-image: linear-gradient(
+        69deg,#eddebf67,#19587d
+      ) 1;
     font-size: 20px;
     color: var(--white-color)
 }
@@ -465,10 +573,7 @@ nav ul a:hover, a.active{
     text-decoration: none;
     border: 2px solid;
     padding: 10px;
-          -o-border-image:  linear-gradient(
-            69deg,#eddebf67,#19587d
-          ) 1;
-             border-image:  linear-gradient(
+    border-image: linear-gradient(
             69deg,#eddebf67,#19587d
           ) 1;
     font-size: 20px;
@@ -481,10 +586,7 @@ nav ul a:hover, a.active{
     text-decoration: none;
     border: 2px solid;
     padding: 10px;
-          -o-border-image:  linear-gradient(
-            69deg,#eddebf67,#19587d
-          ) 1;
-             border-image:  linear-gradient(
+    border-image: linear-gradient(
             69deg,#eddebf67,#19587d
           ) 1;
     font-size: 20px;
@@ -504,9 +606,7 @@ nav ul a:hover, a.active{
     color: var(--white-color);
     font-size: 20px;
     padding: 10px 40px;
-    background: linear-gradient(
-            80deg,var(--gradient-white),var(--gradient-red)
-        );
+    background-image: linear-gradient(to bottom right, rgb(237, 222, 191), rgb(137, 0, 8));
     font-family: 'Rajdhani';
     text-transform: uppercase;
     border: none;
@@ -515,26 +615,7 @@ nav ul a:hover, a.active{
   .button:hover {
     background: linear-gradient(90deg,#eddebf, #102830);
   }
-/*input[type='submit']{
-    display: block;
-    width: 230px;
-    margin: 25px auto;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--white-color);
-    font-size: 20px;
-    padding: 10px 40px;
-    background: linear-gradient(
-            80deg,var(--gradient-white),var(--gradient-red)
-        );
-    font-family: 'Rajdhani';
-    text-transform: uppercase;
-    border: none;
-}
 
-input[type='submit']:hover{
-    background: linear-gradient(90deg,#eddebf, #102830);
-    }*/
 /* Design Popup*/
 .overlay {
     position: fixed;
@@ -542,20 +623,20 @@ input[type='submit']:hover{
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(90deg,#eddebf, #102830);
+    background: var(--white-color);
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
   }
   .overlay:target {
     visibility: visible;
-    opacity: 1;
+    opacity: 2;
   }
   
   .popup {
     margin: 70px auto;
     padding: 20px;
-    background: transparent;
+    background:  linear-gradient(90deg,#eddebf, #102830);
     border-radius: 5px;
     width: 30%;
     position: relative;
@@ -581,7 +662,6 @@ input[type='submit']:hover{
   .popup .close:hover {
     color: var(--white-color);
   }
-  
   @media screen and (max-width: 700px){
     .popup{
       width: 70%;
@@ -607,7 +687,33 @@ input[type='submit']:hover{
     text-align: center;
 }
 #citations .guillemet-close{
-float: right;
+    float: right;
+}
+
+
+#rond{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    width: 20%;
+}
+
+#rond .plein{
+    list-style-type: disc;
+}
+
+#rond .vide{
+    list-style-type: circle;
+}
+
+#rond li{
+    color: #0033cc;
+}
+
+#cercle {
+    position: relative;
+    align-items: center;
+    margin: 50px;
 }
 
 /* Design - footer */
